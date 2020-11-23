@@ -1,0 +1,29 @@
+.body {
+    grid-row-start: 2;
+    display: grid;
+    grid-template: 1fr/ 1fr auto;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+}
+
+.body span{
+    display: none !important;
+}
+.body textarea{
+    margin: 5px 0 0 0;
+    padding: 0 !important;
+    border-bottom: 0px !important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.body button{
+    margin: 8px;
+}
+.body div{
+    margin: 3px 8px !important;
+}

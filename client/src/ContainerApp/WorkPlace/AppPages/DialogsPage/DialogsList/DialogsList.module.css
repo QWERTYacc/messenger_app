@@ -1,0 +1,32 @@
+.body {
+    overflow: auto;
+}
+.content {
+    align-self: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(minmax(60px, auto));
+    justify-items: start;
+    align-items: center;
+    grid-gap: 16px;
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+
+.preloaderContainer{
+    display: grid;
+    grid-template: 1fr/1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.body a {
+    width: 100%;
+}
+
+svg {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}

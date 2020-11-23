@@ -1,0 +1,4 @@
+.body {
+    display: grid;
+    overflow: auto;
+}

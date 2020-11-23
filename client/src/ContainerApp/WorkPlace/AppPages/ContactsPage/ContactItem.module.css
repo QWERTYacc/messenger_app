@@ -1,0 +1,42 @@
+.body {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+.userInfo{
+    display: grid;
+    justify-content: start;
+    grid-auto-flow: column;
+    grid-gap: 15px;
+    padding-left: 25px;
+}
+.userPhoto {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+img {
+ width: 50px;
+}
+
+.user_name{
+    align-self: center;
+    font-size: 20px;
+}
+
+.newMsgsContainer{
+    display: grid;
+}
+.newMsgs{
+    align-self: center;
+    padding: 7px 20px;
+    font-weight: bold;
+}

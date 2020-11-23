@@ -1,0 +1,13 @@
+.body {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-top: 0 !important;
+}

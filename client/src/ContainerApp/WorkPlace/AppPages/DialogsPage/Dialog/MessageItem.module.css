@@ -1,0 +1,32 @@
+.body {
+    display: grid;
+    grid-gap: 7px;
+    width: 90%;
+}
+
+.sender {
+    font-weight: bold;
+    margin: 0 10px;
+}
+.fromUser{
+    text-align: right;
+}
+.fromInterlocutor .messageBody{
+    background-color: #2195f32d;
+    padding: 8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.fromSystem{
+    text-align: center;
+    background-color: #21f3442d;
+    padding: 8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

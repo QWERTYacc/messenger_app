@@ -1,0 +1,27 @@
+.body {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+    height: 100vh;
+    background-color: rgb(238, 238, 238);
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.container {
+    display: grid;
+    min-width: 290px;
+}
+
+.container h3 {
+    justify-self: center;
+}
+
+.bntsSet {
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+}

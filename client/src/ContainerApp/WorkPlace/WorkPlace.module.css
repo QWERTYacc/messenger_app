@@ -1,0 +1,9 @@
+.body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    width: 100%;
+    max-width: 1024px;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}

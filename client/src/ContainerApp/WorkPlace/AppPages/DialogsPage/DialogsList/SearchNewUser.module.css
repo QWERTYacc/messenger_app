@@ -1,0 +1,21 @@
+.body {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    /* grid-auto-flow: column; */
+    /* justify-content: space-between; */
+    overflow: auto;
+}
+
+.container{
+    width: 80%;
+    text-align: center;
+}
+
+.searchResult {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
