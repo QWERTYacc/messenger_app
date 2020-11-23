@@ -1,3 +1,7 @@
+.container{
+    display: grid;
+    overflow: auto;
+}
 .body {
     display: grid;
     align-content: center;

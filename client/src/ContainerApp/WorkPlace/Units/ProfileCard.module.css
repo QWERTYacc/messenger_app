@@ -2,6 +2,7 @@
     display: grid;
     justify-items: center;
     align-content: center;
+    padding: 25px 10px;
 }
 
 .userPhoto {

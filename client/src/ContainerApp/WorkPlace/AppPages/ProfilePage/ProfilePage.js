@@ -48,25 +48,27 @@ function ProfilePage(props) {
     };
 
     return (
-        <div className={classes.body}>
-            <ProfileCard
-                btns={[
-                    {
-                        btnFunc: 'changeBtn',
-                        btnStyle: 'mainColor',
-                        btnName: 'Change',
+        <div className={classes.container}>
+            <div className={classes.body}>
+                <ProfileCard
+                    btns={[
+                        {
+                            btnFunc: 'changeBtn',
+                            btnStyle: 'mainColor',
+                            btnName: 'Change',
 
-                    },
-                    {
-                        btnFunc: 'logoutBtn',
-                        btnStyle: 'accentColor',
-                        btnName: 'Logout',
+                        },
+                        {
+                            btnFunc: 'logoutBtn',
+                            btnStyle: 'accentColor',
+                            btnName: 'Logout',
 
-                    },
-                ]}
-                profile={props.profilePage}
-                dispatch={props.dispatch}
-            />
+                        },
+                    ]}
+                    profile={props.profilePage}
+                    dispatch={props.dispatch}
+                />
+            </div>
         </div>
     );
 };
