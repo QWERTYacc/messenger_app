@@ -10,6 +10,8 @@ import { reloadContactsActionCreator } from '../../redux/contactsReducer';
 import { redirectNewUserActionCreator } from '../../redux/searchNewUserReducer';
 import { baseUrl } from '../../App';
 
+console.log('process.env.NODE_ENV');
+console.log(process.env.NODE_ENV);
 export let socket = io.connect(baseUrl(process.env.NODE_ENV));
 
 
