@@ -3,6 +3,11 @@ import './App.css';
 import { useRoutes } from './routes';
 import { loginActionCreator } from './redux/authReducer';
 
+export function baseUrl(node_env) {
+  if (node_env === 'development') return 'http://localhost:5000';
+  return 'https://simple--messenger.herokuapp.com';
+};
+
 function App(props) {
 
   let isAuthenticated = !!props.authState.token;

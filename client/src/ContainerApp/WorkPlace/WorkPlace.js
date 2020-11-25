@@ -8,8 +8,9 @@ import { newMessagesActionCreator } from '../../redux/navigationReducer';
 import { checkNewMessagesOnDialogListActionCreator, reloadDialogsActionCreator } from '../../redux/dialogsListReducer';
 import { reloadContactsActionCreator } from '../../redux/contactsReducer';
 import { redirectNewUserActionCreator } from '../../redux/searchNewUserReducer';
+import { baseUrl } from '../../App';
 
-export let socket = io.connect('http://localhost:5000');
+export let socket = io.connect(baseUrl(process.env.NODE_ENV));
 
 
 function WorkPlace(props) {
