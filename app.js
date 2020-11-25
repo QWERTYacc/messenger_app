@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json({ extended: true }));
 app.use('/api/auth', require('./routes/auth.routes'));
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'development') {
     app.use('/', express.static(path.join(__dirname, 'client', 'build')));
 
     app.get('*', function (req, res) {
