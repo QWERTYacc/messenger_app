@@ -57,8 +57,10 @@ async function assemblingDialog(dialogId, dialog) {
     return dialogData;
 };
 
-const PORT = config.get('port') || 5000;
-// const PORT = process.env.PORT || 80;
+if (process.env.NODE_ENV !== 'development') {
+    const PORT = process.env.PORT || 80;
+} else { const PORT = config.get('port') || 5000; };
+
 async function start() {
     try {
         await mongoose.connect(config.get('mongoUri'), {
