@@ -4,7 +4,6 @@ import { useRoutes } from './routes';
 import { loginActionCreator } from './redux/authReducer';
 
 export function baseUrl(node_env) {
-  console.log(node_env);
   if (node_env === 'development') return 'http://localhost:5000';
   return 'https://simple--messenger.herokuapp.com';
 };
