@@ -15,13 +15,13 @@ const app = express();
 app.use(express.json({ extended: true }));
 app.use('/api/auth', require('./routes/auth.routes'));
 
-// if (process.env.NODE_ENV === 'production') {
-app.use('/', express.static(path.join(__dirname, 'client', 'build')));
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')));
 
-app.get('*', function (req, res) {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
-// };
+    app.get('*', function (req, res) {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+};
 
 async function assemblingDialog(dialogId, dialog) {
     const user1 = await User.findById(dialog.userId1);
@@ -57,8 +57,8 @@ async function assemblingDialog(dialogId, dialog) {
     return dialogData;
 };
 
-// const PORT = config.get('port') || 5000;
-const PORT = process.env.PORT || 80;
+const PORT = config.get('port') || 5000;
+// const PORT = process.env.PORT || 80;
 async function start() {
     try {
         await mongoose.connect(config.get('mongoUri'), {

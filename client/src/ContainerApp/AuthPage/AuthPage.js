@@ -39,7 +39,7 @@ function AuthPage(props) {
     if (e.target.name === "register") {
       axios({
         method: 'post',
-        url: 'https://simple--messenger.herokuapp.com/api/auth/register',
+        url: '/api/auth/register',
         data: props.authState
       })
         .then(response => {
@@ -60,7 +60,7 @@ function AuthPage(props) {
     if (e.target.name === "login") {
       axios({
         method: 'post',
-        url: 'https://simple--messenger.herokuapp.com/api/auth/login',
+        url: '/api/auth/login',
         data: props.authState
       })
         .then(response => {

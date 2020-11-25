@@ -9,7 +9,7 @@ import { checkNewMessagesOnDialogListActionCreator, reloadDialogsActionCreator }
 import { reloadContactsActionCreator } from '../../redux/contactsReducer';
 import { redirectNewUserActionCreator } from '../../redux/searchNewUserReducer';
 
-export let socket = io.connect('https://simple--messenger.herokuapp.com/');
+export let socket = io.connect('http://localhost:5000');
 
 
 function WorkPlace(props) {

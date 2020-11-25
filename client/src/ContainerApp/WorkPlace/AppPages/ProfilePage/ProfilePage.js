@@ -30,19 +30,21 @@ function ProfilePage(props) {
     if (props.profilePage.changePage === true) {
 
         return (
-            <div className={classes.body}>
-                <Button
-                    className={`${classes.closeBtn} grey`}
-                    floating
-                    icon={<Icon>close</Icon>}
-                    small
-                    waves='light'
-                    onClick={() => {
-                        let action = changeUserDataActionCreator(false);
-                        props.dispatch(action);
-                    }}
-                />
-                <ChangeProfileCard profilePage={props.profilePage} dispatch={props.dispatch} />
+            <div className={classes.container}>
+                <div className={classes.body}>
+                    <Button
+                        className={`${classes.closeBtn} grey`}
+                        floating
+                        icon={<Icon>close</Icon>}
+                        small
+                        waves='light'
+                        onClick={() => {
+                            let action = changeUserDataActionCreator(false);
+                            props.dispatch(action);
+                        }}
+                    />
+                    <ChangeProfileCard profilePage={props.profilePage} dispatch={props.dispatch} />
+                </div>
             </div>
         );
     };
