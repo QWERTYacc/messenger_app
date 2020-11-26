@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@-moz-document url-prefix() {
+  #dialogTextArea{
+      margin: 5px 0px;
+  }
+}

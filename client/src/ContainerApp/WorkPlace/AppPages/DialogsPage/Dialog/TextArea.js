@@ -27,6 +27,7 @@ function TextArea(props) {
             <Textarea
                 className={`white`}
                 value={props.textArea.newMessage}
+                id={`dialogTextArea`}
                 onChange={(e) => {
                     let action = changeNewMessageActionCreator(e.target.value);
                     props.dispatch(action);
