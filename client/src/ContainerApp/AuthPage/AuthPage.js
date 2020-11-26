@@ -3,13 +3,11 @@ import classes from './AuthPage.module.css';
 import cssVars from '../../vars_css/vars_css';
 import M from "materialize-css";
 import * as axios from 'axios';
-import { registrationActionCreator, loginActionCreator } from '../../redux/authReducer';
+import { changeInputValueActionCreator, loginActionCreator, registrationActionCreator } from '../../redux/authReducer';
+import { Button, Preloader, TextInput } from 'react-materialize';
 
 
 function AuthPage(props) {
-
-  let btnArr = document.querySelectorAll('button');
-  let inputArr = document.querySelectorAll('input');
 
   let changeState = (e) => {
     let email = document.querySelector('#email_inline').value;
@@ -21,7 +19,7 @@ function AuthPage(props) {
       pass = e.target.value;
     };
 
-    let action = registrationActionCreator(email, pass);
+    let action = changeInputValueActionCreator(email, pass);
     props.dispatch(action);
   };
 
@@ -33,9 +31,6 @@ function AuthPage(props) {
 
   let postAuthData = (e) => {
 
-    btnArr.forEach(btn => btn.disabled = true);
-    inputArr.forEach(input => input.disabled = true);
-
     if (e.target.name === "register") {
       axios({
         method: 'post',
@@ -43,10 +38,8 @@ function AuthPage(props) {
         data: props.authState
       })
         .then(response => {
-          M.toast({ html: `${response.data.message}` });
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500)
+          let action = registrationActionCreator(false, response.data.userEmail);
+          props.dispatch(action);
         })
         .catch(function (error) {
           error = JSON.parse(error.request.response);
@@ -56,6 +49,8 @@ function AuthPage(props) {
           }, 1500)
 
         });
+      let action = registrationActionCreator(true);
+      props.dispatch(action);
     };
     if (e.target.name === "login") {
       axios({
@@ -74,49 +69,70 @@ function AuthPage(props) {
     };
   };
 
-  if (props.authState.email !== "" || props.authState.password !== "") {
+  let disabledBtn = true;
+  if (props.authState.email !== "" || props.authState.password !== "") disabledBtn = false;
+
+  if (props.authState.isLoad) {
     return (
       <div className={classes.body}>
-        <div className={classes.container}>
-          <h3 className={cssVars.mainTextColor}>Log In</h3>
-          <div className="input-field">
-            <input type="email" name="email" id="email_inline" onChange={changeState} className="validate" />
-            <label htmlFor="email_inline">Email</label>
-          </div>
-          <div className="input-field">
-            <input id="password" type="password" className="validate" name="password" onChange={changeState} />
-            <label htmlFor="password">Password</label>
-          </div>
-
-          <div className={classes.bntsSet}>
-            <button className={`${cssVars.mainColor} waves-effect waves-light btn`} name="login" onClick={postAuthData}>Login</button>
-            <button className={`${cssVars.accentColor} waves-effect waves-light btn`} name="register" onClick={postAuthData}>Registration</button>
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className={classes.body}>
-        <div className={classes.container}>
-          <h3 className={cssVars.mainTextColor}>Log In</h3>
-          <div className="input-field">
-            <input type="email" name="email" id="email_inline" onChange={changeState} className="validate" />
-            <label htmlFor="email_inline">Email</label>
-          </div>
-          <div className="input-field">
-            <input id="password" type="password" className="validate" name="password" onChange={changeState} />
-            <label htmlFor="password">Password</label>
-          </div>
-
-          <div className={classes.bntsSet}>
-            <button className={`${cssVars.mainColor} waves-effect waves-light btn disabled`} name="login" onClick={postAuthData}>Login</button>
-            <button className={`${cssVars.accentColor} waves-effect waves-light btn disabled`} name="register" onClick={postAuthData}>Registration</button>
-          </div>
-        </div>
+        <Preloader />
       </div>
     );
   };
+
+  let showItem = (isShow) => {
+    if (isShow) return 'displayBlock';
+    return 'noShowItem'
+  };
+
+  return (
+    <div className={classes.body}>
+      <div className={classes.container}>
+        <h3 className={cssVars.mainTextColor}>Log In</h3>
+        <h5 className={showItem(props.authState.newUser)}>New user<br />"{`${props.authState.newUser}`}"<br />created.<br />You can login</h5>
+        <TextInput
+          email
+          id="email_inline"
+          label="Email"
+          name="email"
+          onChange={changeState}
+          validate
+        />
+        <TextInput
+          password
+          id="password"
+          label="Password"
+          name="password"
+          onChange={changeState}
+        />
+
+        <div className={classes.bntsSet}>
+          <Button
+            className={`${cssVars.mainColor}`}
+            name="login"
+            small
+            style={{
+              // marginRight: '5px'
+            }}
+            waves="light"
+            disabled={disabledBtn}
+            onClick={postAuthData}
+          >Login</Button>
+          <Button
+            className={`${cssVars.accentColor} ${showItem(!props.authState.newUser)}`}
+            name="register"
+            small
+            style={{
+              // marginRight: '5px'
+            }}
+            waves="light"
+            disabled={disabledBtn}
+            onClick={postAuthData}
+          >Registration</Button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AuthPage;

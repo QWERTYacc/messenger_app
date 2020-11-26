@@ -1,6 +1,6 @@
+const CHANGE_INPUTS = 'CHANGE_INPUTS';
 const REGISTRATION = 'REGISTRATION';
 const LOGIN = 'LOGIN';
-const LOGOUT = 'LOGOUT';
 
 let initialeState = {
     email: "",
@@ -10,11 +10,19 @@ let initialeState = {
 const authReducer = (state = initialeState, action) => {
 
     switch (action.type) {
-        case REGISTRATION:
+        case CHANGE_INPUTS:
             return {
                 ...state,
                 email: action.email,
                 password: action.password,
+            };
+
+        case REGISTRATION:
+            return {
+                email: '',
+                password: '',
+                newUser: action.newUser,
+                isLoad: action.isLoad,
             };
 
         case LOGIN:
@@ -24,30 +32,25 @@ const authReducer = (state = initialeState, action) => {
                 userId: action.id,
             };
 
-        case LOGOUT:
-            return {
-                ...state,
-                token: null,
-                userId: null,
-            }
-
         default:
             return state;
     };
 };
 
-export const registrationActionCreator = (email, password) => ({
-    type: REGISTRATION,
+export const changeInputValueActionCreator = (email, password) => ({
+    type: CHANGE_INPUTS,
     email: email,
     password: password,
+});
+export const registrationActionCreator = (isLoad, newUser) => ({
+    type: REGISTRATION,
+    isLoad,
+    newUser,
 });
 export const loginActionCreator = (token, id) => ({
     type: LOGIN,
     token: token,
     id: id,
-});
-export const logoutActionCreator = () => ({
-    type: LOGOUT,
 });
 
 export default authReducer;

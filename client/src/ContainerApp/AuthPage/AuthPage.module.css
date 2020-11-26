@@ -20,6 +20,11 @@
     justify-self: center;
 }
 
+.container h5 {
+    justify-self: center;
+    text-align: center;
+}
+
 .bntsSet {
     display: grid;
     grid-auto-flow: column;
