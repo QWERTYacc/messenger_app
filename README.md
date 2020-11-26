@@ -10,3 +10,6 @@ This is a working [Simple Messenger](https://simple--messenger.herokuapp.com/) c
 - server (taught for this project): NodeJS, express
 - client-server interaction: ajax, web-sockets
 - hosting: Heroku
+
+
+You can see the result here [Simple Messenger](https://simple--messenger.herokuapp.com/)
