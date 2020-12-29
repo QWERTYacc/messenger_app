@@ -9,6 +9,7 @@ This is a working [Simple Messenger](https://simple--messenger.herokuapp.com/) c
 - client (main tool): ReactJS(state - Redux), GridCSS, Materialize
 - server (taught for this project): NodeJS, express
 - client-server interaction: ajax, web-sockets
+- data base: MongoDB
 - hosting: Heroku
 
 
